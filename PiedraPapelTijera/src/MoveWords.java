@@ -6,7 +6,7 @@ public class MoveWords{
     public static final int GANA = 1;
     public static final int PIERDE = 2;
 
-    private static final String[] validMoves = {"TIJERAS", "PAPEL", "PIEDRA"};
+    private static final String[] validMoves = {"TIJERAS", "PAPEL", "PIEDRA", "LAGARTO", "SPOCK"};
     private static final String[] validCommands = {"SALIR", "HELP"};
 
     private Random rnd;
@@ -60,14 +60,13 @@ public class MoveWords{
     }
 
     public static int checkWinner(String first, String second){
-	    int first_i, second_i;
-
-	    first_i = getIndex(first);
-	    second_i = getIndex(second);
-
-	    if (first_i == second_i) return EMPATE;
-	    
-	    return (( (first_i +1) % validMoves.length ) == second_i ) ? GANA: PIERDE;
+    	if (first.equals(second)) return EMPATE;
+	    else if (first.equals("PIEDRA") && (second.equals("TIJERAS") || second.equals("LAGARTO"))) return GANA;
+	    else if (first.equals("PAPEL") && (second.equals("PIEDRA") || second.equals("SPOCK"))) return GANA;
+	    else if (first.equals("TIJERAS") && (second.equals("PAPEL") || second.equals("LAGARTO"))) return GANA;
+	    else if (first.equals("SPOCK") && (second.equals("TIJERAS") || second.equals("PIEDRA"))) return GANA;
+	    else if (first.equals("LAGARTO") && (second.equals("PAPEL") || second.equals("SPOCK"))) return GANA;
+	    else return PIERDE;
 	}
 	
 } 
