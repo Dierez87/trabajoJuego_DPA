@@ -6,7 +6,7 @@ public class MoveWords{
     public static final int GANA = 1;
     public static final int PIERDE = 2;
 
-    private static final String[] validMoves = {"TIJERAS", "PAPEL", "PIEDRA", "LAGARTO", "SPOCK"};
+    private static final String[] validMoves = {"TIJERAS", "PAPEL", "PIEDRA", "Torito", "Sepia"};
     private static final String[] validCommands = {"SALIR", "HELP"};
 
     private Random rnd;
@@ -61,11 +61,11 @@ public class MoveWords{
 
     public static int checkWinner(String first, String second){
     	if (first.equals(second)) return EMPATE;
-	    else if (first.equals("PIEDRA") && (second.equals("TIJERAS") || second.equals("LAGARTO"))) return GANA;
-	    else if (first.equals("PAPEL") && (second.equals("PIEDRA") || second.equals("SPOCK"))) return GANA;
-	    else if (first.equals("TIJERAS") && (second.equals("PAPEL") || second.equals("LAGARTO"))) return GANA;
-	    else if (first.equals("SPOCK") && (second.equals("TIJERAS") || second.equals("PIEDRA"))) return GANA;
-	    else if (first.equals("LAGARTO") && (second.equals("PAPEL") || second.equals("SPOCK"))) return GANA;
+	    else if (first.equals("PIEDRA") && (second.equals("TIJERAS") || second.equals("Torito"))) return GANA;
+	    else if (first.equals("PAPEL") && (second.equals("PIEDRA") || second.equals("Sepia"))) return GANA;
+	    else if (first.equals("TIJERAS") && (second.equals("PAPEL") || second.equals("Torito"))) return GANA;
+	    else if (first.equals("Sepia") && (second.equals("TIJERAS") || second.equals("PIEDRA"))) return GANA;
+	    else if (first.equals("Torito") && (second.equals("PAPEL") || second.equals("Sepia"))) return GANA;
 	    else return PIERDE;
 	}
 	
